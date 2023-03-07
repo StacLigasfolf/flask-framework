@@ -5,4 +5,4 @@ report = Blueprint('report', __name__, url_prefix='/reports', static_folder='../
 
 @report.route('/')
 def report_list():
-    return render_template('reports/list.html', reports=[1, 2, 3, 4, 5])
+    return render_template('reports/login.html', reports=[1, 2, 3, 4, 5])

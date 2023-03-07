@@ -9,16 +9,18 @@ def user_list():
     from mainapp.blog.models import User
     users = User.query.all()
     return render_template(
-        'users/list.html',
+        'users/login.html',
         users=users,
     )
 
 
 @user.route('/<int:pk>')
-def get_user(pk: int):
+def profile(pk: int):
     from mainapp.blog.models import User
     _user = User.query.filter_by(id=pk).one_or_none()
+    if not _user:
+        raise NotFound(f"User #{pk} doesn't exist!")
     return render_template(
-        'users/details.html',
+        'users/profile.html',
         user=_user,
     )

@@ -1,6 +1,8 @@
 from flask import Flask
+from flask import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
+from mainapp.blog.auth.views import auth
 from mainapp.blog.report.views import report
 from mainapp.blog.user.views import user
 
@@ -16,6 +18,10 @@ def create_app() -> Flask:
 
     db.init_app(app)
 
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
     register_blueprint(app)
     return app
 
@@ -23,6 +29,4 @@ def create_app() -> Flask:
 def register_blueprint(app: Flask):
     app.register_blueprint(user)
     app.register_blueprint(report)
-
-
-
+    app.register_blueprint(auth)
