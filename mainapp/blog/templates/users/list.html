@@ -9,9 +9,9 @@ User List
     <div class="col">
         <h1>Users</h1>
         {{url_for('report.report_list')}}
-        {% for user_id in users %}
+        {% for user in users %}
         <ul>
-            <li><a href="{{ url_for('user.get_user', pk=user_id) }}">{{users[user_id]}}</a></li>
+            <li><a href="{{ url_for('user.get_user', pk=user_id) }}">{{user.email}}</a></li>
         </ul>
         {% endfor %}
     </div>
