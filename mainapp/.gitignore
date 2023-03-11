@@ -111,7 +111,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-# .env
+# env.py
 .env/
 .venv/
 env/
@@ -333,7 +333,7 @@ Temporary Items
 # SageMath parsed files
 
 # Environments
-# .env
+# env.py
 
 # Spyder project settings
 
