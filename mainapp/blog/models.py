@@ -1,12 +1,11 @@
 from datetime import datetime
 
 from flask_login import UserMixin
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Table
 from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash
 
 from mainapp.blog.app import db
-
 
 article_tag_associations_table = Table(
     'article_tag_association',

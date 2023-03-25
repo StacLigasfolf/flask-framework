@@ -6,8 +6,8 @@ from mainapp.blog.extensions import db
 
 @click.command('create-init-user')
 def create_init_user():
-    from blog.models import User
-    from wsgi import app
+    from mainapp.blog.models import User
+    from mainapp.wsgi import app
 
     with app.app_context():
         db.session.add(
@@ -18,8 +18,8 @@ def create_init_user():
 
 @click.command('create-init-tags')
 def create_init_tags():
-    from blog.models import Tag
-    from wsgi import app
+    from mainapp.blog.models import Tag
+    from mainapp.wsgi import app
 
     with app.app_context():
         tags = ('flask', 'django', 'python', 'gb', 'sqlite')
